@@ -66,18 +66,20 @@ Rectangle {
         modeTextId.modeText = "mode"
     }
 
+// remove donateView
     function setAdvancedMode(state){
         // Enable ro disable buttons based on Adv mode.
         // ie. terminalView.visible = state
-        var donate = Settings.value("USER_DONATED", "false");
+        var donate = Settings.value("USER_DONATED", "true");
         console.log("Set Advanced Mode " + state + " USER_DONATED:" + donate);
-        if (donate === true){
-            console.log("Donate invisible");
-            donateView.visible = false;
-        } else {
-            console.log("Donate visible");
-            donateView.visible = true;
-        }
+        donateView.visible = false;
+//        if (donate === true){
+//            console.log("Donate invisible");
+//            donateView.visible = false;
+//        } else {
+//            console.log("Donate visible");
+//            donateView.visible = false;
+//        }
     }
 
     function clearHighlightedButtons(){
@@ -194,30 +196,30 @@ Rectangle {
         }
 
 // remove donateView
-//        Button {
-//            id: donateView
-//            label: "DONATE"
-//            image: "./resources/apmplanner/toolbar/flightdata.png"
-//            onClicked: {
-//                clearHighlightedButtons()
-//                globalObj.triggerDonateView()
-//                setSelected()
-//                donateHideTimer.start()
-//            }
+        Button {
+            id: donateView
+            label: "DONATE"
+            image: "./resources/apmplanner/toolbar/flightdata.png"
+            onClicked: {
+                clearHighlightedButtons()
+                globalObj.triggerDonateView()
+                setSelected()
+                donateHideTimer.start()
+            }
 
-//            Timer {
-//                id: donateHideTimer
-//                running: false
-//                interval: 500
-//                onTriggered: {
-//                    var donated = Settings.value("USER_DONATED", "true");
-//                    if (donated === 'true'){
-//                        donateView.visible = false;
-//                        console.log("remove donated button")
-//                    }
-//                }
-//            }
-//        }
+            Timer {
+                id: donateHideTimer
+                running: false
+                interval: 500
+                onTriggered: {
+                    var donated = Settings.value("USER_DONATED", "true");
+                    if (donated === 'true'){
+                        donateView.visible = false;
+                        console.log("remove donated button")
+                    }
+                }
+            }
+        }
 
 // [TODO] removed from toolbar until we have simulation working
 //        Button {
