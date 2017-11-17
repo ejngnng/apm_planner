@@ -103,7 +103,8 @@ APMToolBar::APMToolBar(QWindow *parent):
     }
     connect(LinkManager::instance(),SIGNAL(linkChanged(int)),this,SLOT(updateLinkDisplay(int)));
 
-    connect(this, SIGNAL(triggerDonateView()), this, SLOT(selectDonateView()));
+// remove DonateView
+//    connect(this, SIGNAL(triggerDonateView()), this, SLOT(selectDonateView()));
 }
 
 void APMToolBar::checkAdvancedMode(bool checked)

@@ -193,30 +193,31 @@ Rectangle {
             }
         }
 
-        Button {
-            id: donateView
-            label: "DONATE"
-            image: "./resources/apmplanner/toolbar/flightdata.png"
-            onClicked: {
-                clearHighlightedButtons()
-                globalObj.triggerDonateView()
-                setSelected()
-                donateHideTimer.start()
-            }
+// remove donateView
+//        Button {
+//            id: donateView
+//            label: "DONATE"
+//            image: "./resources/apmplanner/toolbar/flightdata.png"
+//            onClicked: {
+//                clearHighlightedButtons()
+//                globalObj.triggerDonateView()
+//                setSelected()
+//                donateHideTimer.start()
+//            }
 
-            Timer {
-                id: donateHideTimer
-                running: false
-                interval: 500
-                onTriggered: {
-                    var donated = Settings.value("USER_DONATED", "false");
-                    if (donated === 'true'){
-                        donateView.visible = false;
-                        console.log("remove donated button")
-                    }
-                }
-            }
-        }
+//            Timer {
+//                id: donateHideTimer
+//                running: false
+//                interval: 500
+//                onTriggered: {
+//                    var donated = Settings.value("USER_DONATED", "true");
+//                    if (donated === 'true'){
+//                        donateView.visible = false;
+//                        console.log("remove donated button")
+//                    }
+//                }
+//            }
+//        }
 
 // [TODO] removed from toolbar until we have simulation working
 //        Button {
